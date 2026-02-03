@@ -1,7 +1,7 @@
 <!-- 
 
 :woman: Hermione: Dicas em Shellscript
-Update: Scripts, gif, citação
+Update: Editando e novo Script
 
  -->
 

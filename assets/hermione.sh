@@ -2,15 +2,15 @@
 
 # Bem-vindo à Hermione, sua assistente no Linux!
 while true; do
-    echo "Olá, sou Hermione! Lembre-se, estas dicas não substituem sua ida para a biblioteca."
+    echo "Olá, sou Hermione! ~* Lembre-se, estas dicas não substituem sua ida para a biblioteca. *~"
     echo "Escolha uma opção abaixo:"
-    echo "1 - Dicas Linux"
+    echo "1 - Linux, Livro de Funções Básicas"
     echo "2 - Dicas Git"
     echo "3 - Dicas Alias"
     echo "4 - Dicas Podman"
     echo "5 - Dicas Postgres"
     echo "6 - Dicas SQL"
-    echo "7 - Livro de Funções para o Fedora"
+    echo "7 - Dicas Linux"
     echo "0 - Sair"
 
     # Solicitar a entrada do usuário
@@ -38,19 +38,58 @@ while true; do
     # Processar a escolha do usuário
     case $opcao in
         1)
-            echo "~*"        
-            echo "Estas dicas serão uteis para navegar no mundo Linux."
-            echo ""
-            echo "[comando] --help --- Ajuda. Lista as opções do comando pretendido"
-            echo "ls -a            --- Lista todos os arquivos ocultos"
-            echo "ls -lh           --- Lista arquivos com seu tamanho em formato legível"
-            echo "rm -rf           --- Remove pasta recursivamente e forçadamente"
-            echo "cp               --- Copia um arquivo para o local desejado"
-            echo "cat [nome].txt   --- Concatena criando um novo arquivo"
-
+        # echo "1 - Dica Linux"
+                    echo "~*"
+            echo "Você acessou o 7: Livro de Funções para o Fedora:"
+            echo "1 - Accio Upgrade para Atualizar o Sistema Fedora(dnf upgrade --refresh -y)"
+            echo "2 - Estupefaça (Reiniciar o sistema)"
+            echo "3 - Avada Kedavra (Desligar o sistema)"
+            echo "0 - Voltar ao menu principal"
+            read -p "Escolha sua magia (0-3): " magia
+            case $magia in
+                1)
+                    read -p "Tem certeza que deseja atualizar o sistema? (s/n): " certeza
+                    if [[ "$certeza" == [sS]* ]]; then
+                        echo "Você lançou: Accio Upgrade!"
+                        echo "Executando o comando 'sudo dnf upgrade --refresh'..."
+                        sudo dnf upgrade --refresh -y
+                        echo ""
+                        echo "Atualização finalizada com sucesso!"
+                    else
+                        echo "Feitiço cancelado."
+                    fi
+                    ;;
+                2)
+                    read -p "Tem certeza que deseja reiniciar o sistema? (s/n): " certeza
+                    if [[ "$certeza" == [sS]* ]]; then
+                        echo "Você lançou: Estupefaça!"
+                        echo "Reiniciando o sistema com 'shutdown -r now'..."
+                        sudo shutdown -r now
+                    else
+                        echo "Feitiço cancelado."
+                    fi
+                    ;;
+                3)
+                    read -p "Tem certeza que deseja desligar o sistema? (s/n): " certeza
+                    if [[ "$certeza" == [sS]* ]]; then
+                        echo "Você lançou: Avada Kedavra!"
+                        echo "Desligando o sistema com 'shutdown -h now'..."
+                        sudo shutdown -h now
+                    else
+                        echo "Feitiço cancelado."
+                    fi
+                    ;;
+                0)
+                    echo "Voltando ao menu principal..."
+                    ;;
+                *)
+                    echo "Magia desconhecida! Tente novamente."
+                    ;;
+            esac
             echo "Ainda precisa de ajuda? Talvez algumas horas na biblioteca resolvam..."
             perguntar_continuar
             ;;
+
         2)
         # echo "2 - Dica Git"
             echo "~*"        
@@ -62,6 +101,35 @@ while true; do
         # echo "3 - Dica Alias"
             echo "~*"        
             echo "Dica Alias: Use 'alias ll=\"ls -lah\"' para criar um atalho para listar arquivos."
+            echo ""
+            echo "Meus Alias estão em um site chamado alias.meuweb.site"
+            echo "1 - Abrir o site"
+            echo "2 - Copiar o link"
+            echo "0 - Continuar"
+            read -p "Opção: " site_opt
+            link="https://alias.meuweb.site"
+            case $site_opt in
+                1)
+                    if command -v xdg-open &> /dev/null; then
+                        xdg-open "$link"
+                        echo "Site aberto!"
+                    else
+                        echo "Navegador não detectado. Link: $link"
+                    fi
+                    ;;
+                2)
+                    if command -v wl-copy &> /dev/null; then
+                        echo -n "$link" | wl-copy
+                        echo "Link copiado!"
+                    elif command -v xclip &> /dev/null; then
+                        echo -n "$link" | xclip -selection clipboard
+                        echo "Link copiado!"
+                    else
+                        echo "Ferramenta de clipboard não encontrada. Link: $link"
+                    fi
+                    ;;
+            esac
+
             echo "Ainda precisa de ajuda? Talvez algumas horas na biblioteca resolvam..."
             perguntar_continuar
             ;;
@@ -87,41 +155,20 @@ while true; do
             perguntar_continuar
             ;;
         7)
-            echo "~*"
-            echo "Você acessou o 7: Livro de Funções para o Fedora:"
-            echo "1 - Accio Upgrade (Atualizar o sistema)"
-            echo "2 - Estupefaça (Reiniciar o sistema)"
-            echo "3 - Avada Kedavra (Desligar o sistema)"
-            echo "0 - Voltar ao menu principal"
-            read -p "Escolha sua magia (0-3): " magia
-            case $magia in
-                1)
-                    echo "Você lançou: Accio Upgrade!"
-                    echo "Executando o comando 'sudo dnf upgrade --refresh'..."
-                    sudo dnf upgrade --refresh -y
-                    echo ""
-                    echo "Atualização finalizada com sucesso!"
-                    ;;
-                2)
-                    echo "Você lançou: Estupefaça!"
-                    echo "Reiniciando o sistema com 'shutdown -r now'..."
-                    sudo shutdown -r now
-                    ;;
-                3)
-                    echo "Você lançou: Avada Kedavra!"
-                    echo "Desligando o sistema com 'shutdown -h now'..."
-                    sudo shutdown -h now
-                    ;;
-                0)
-                    echo "Voltando ao menu principal..."
-                    ;;
-                *)
-                    echo "Magia desconhecida! Tente novamente."
-                    ;;
-            esac
+            echo "~*"        
+            echo "Estas dicas serão uteis para navegar no mundo Linux."
+            echo ""
+            echo "[comando] --help --- Ajuda. Lista as opções do comando pretendido"
+            echo "ls -a            --- Lista todos os arquivos ocultos"
+            echo "ls -lh           --- Lista arquivos com seu tamanho em formato legível"
+            echo "rm -rf           --- Remove pasta recursivamente e forçadamente"
+            echo "cp               --- Copia um arquivo para o local desejado"
+            echo "cat [nome].txt   --- Concatena criando um novo arquivo"
+
             echo "Ainda precisa de ajuda? Talvez algumas horas na biblioteca resolvam..."
             perguntar_continuar
             ;;
+
         0)
             echo "~*"            
             echo "Saindo..."
