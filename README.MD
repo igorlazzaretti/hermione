@@ -1,7 +1,7 @@
 <!-- 
 
 :woman: Hermione: Dicas em Shellscript
-Update: Atualização 2026 pt1
+Update: Scripts, gif, citação
 
  -->
 
