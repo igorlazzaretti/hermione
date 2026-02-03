@@ -1,3 +1,10 @@
+<!-- 
+
+:woman: Hermione: Dicas em Shellscript
+Update: Atualização 2026 pt1
+
+ -->
+
 ### Como instalar Hermione
 
 Mova o arquivo hermione.sh para o caminho indicado

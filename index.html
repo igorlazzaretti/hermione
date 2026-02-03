@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hermione: Dicas em Shell</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+    <link rel="icon" type="image/png" href="./assets/favicon.ico" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#8b5cf6",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#090c10",
+                        "card-dark": "#161b22",
+                        "border-dark": "#30363d",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-button {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gradient-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .terminal-window {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-300 font-sans antialiased min-h-screen flex flex-col">
+    <main class="flex-grow container mx-auto px-6 py-16 max-w-5xl">
+        <section class="text-center mb-20">
+            <img src="./assets/hermione.webp" alt="Hermione Logo" class="mx-auto mb-6 w-32 h-32" />
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight gradient-text">
+                Hermione: Dicas em Shell
+            </h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Um assistente inteligente e eficiente em Shell Script. Inspirado na sabedoria e prontidão, reúne dicas e
+                comandos essenciais de Linux, Git, Podman, SQL e muito mais.
+            </p>
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a class="gradient-button text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2"
+                    href="#">
+                    <span class="material-symbols-outlined text-sm">download</span>
+                    Começar agora
+                </a>
+                <a class="border border-slate-300 dark:border-border-dark px-8 py-3 rounded-full font-semibold hover:bg-slate-100 dark:hover:bg-card-dark transition-colors flex items-center gap-2"
+                    href="#">
+                    <span class="material-symbols-outlined text-sm">code</span>
+                    Ver Código
+                </a>
+            </div>
+        </section>
+        <section class="space-y-16">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold dark:text-white mb-4">Instalação Rápida</h2>
+                <p class="text-slate-500">Escolha seu ambiente preferido e configure em segundos.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="terminal-window bg-card-dark rounded-xl border border-border-dark overflow-hidden">
+                    <div class="bg-[#21262d] px-4 py-2 flex items-center justify-between border-b border-border-dark">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-mono">setup-vim.sh</span>
+                    </div>
+                    <div class="p-6 font-mono text-sm space-y-4">
+                        <div class="text-slate-500"># Instalar Hermione para Vim</div>
+                        <div class="flex gap-3 group">
+                            <span class="text-primary">$</span>
+                            <code class="text-slate-200">curl -sSL https://hermione.sh/vim/install | bash</code>
+                            <button
+                                class="ml-auto opacity-0 group-hover:opacity-100 text-slate-500 hover:text-white transition-opacity">
+                                <span class="material-symbols-outlined text-lg">content_copy</span>
+                            </button>
+                        </div>
+                        <div class="text-slate-500 mt-2"># Configurar atalhos no .vimrc</div>
+                        <div class="flex gap-3 group">
+                            <span class="text-primary">$</span>
+                            <code class="text-slate-200">vim-hermione --setup-aliases</code>
+                            <button
+                                class="ml-auto opacity-0 group-hover:opacity-100 text-slate-500 hover:text-white transition-opacity">
+                                <span class="material-symbols-outlined text-lg">content_copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="terminal-window bg-card-dark rounded-xl border border-border-dark overflow-hidden">
+                    <div class="bg-[#21262d] px-4 py-2 flex items-center justify-between border-b border-border-dark">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-mono">sublime-config.sh</span>
+                    </div>
+                    <div class="p-6 font-mono text-sm space-y-4">
+                        <div class="text-slate-500"># Baixar pacote Sublime</div>
+                        <div class="flex gap-3 group">
+                            <span class="text-primary">$</span>
+                            <code class="text-slate-200">wget https://hermione.sh/sublime/plugin.zip</code>
+                            <button
+                                class="ml-auto opacity-0 group-hover:opacity-100 text-slate-500 hover:text-white transition-opacity">
+                                <span class="material-symbols-outlined text-lg">content_copy</span>
+                            </button>
+                        </div>
+                        <div class="text-slate-500 mt-2"># Mover para diretório de Packages</div>
+                        <div class="flex gap-3 group">
+                            <span class="text-primary">$</span>
+                            <code class="text-slate-200">unzip plugin.zip -d ~/.config/sublime-text/Packages/</code>
+                            <button
+                                class="ml-auto opacity-0 group-hover:opacity-100 text-slate-500 hover:text-white transition-opacity">
+                                <span class="material-symbols-outlined text-lg">content_copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-3xl mx-auto mt-20">
+                <div
+                    class="bg-white dark:bg-card-dark rounded-lg border border-slate-200 dark:border-border-dark overflow-hidden shadow-sm">
+                    <div
+                        class="px-6 py-4 bg-slate-50 dark:bg-[#1b2129] border-b border-slate-200 dark:border-border-dark flex items-center gap-3">
+                        <span class="material-symbols-outlined text-slate-400">terminal</span>
+                        <h3 class="font-semibold text-sm">Instalação Global no Sistema</h3>
+                    </div>
+                    <div class="p-8">
+                        <div class="mb-8">
+                            <h4 class="text-lg font-medium mb-3 dark:text-white">Mova o arquivo hermione.sh</h4>
+                            <div
+                                class="bg-slate-100 dark:bg-background-dark p-4 rounded-md flex items-center justify-between group">
+                                <code
+                                    class="text-sm font-mono text-slate-700 dark:text-slate-300">sudo mv hermione.sh /usr/local/bin/hermione</code>
+                                <button class="text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-xl">content_copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-8">
+                            <h4 class="text-lg font-medium mb-3 dark:text-white">Dê permissão para o script</h4>
+                            <div
+                                class="bg-slate-100 dark:bg-background-dark p-4 rounded-md flex items-center justify-between group">
+                                <code
+                                    class="text-sm font-mono text-slate-700 dark:text-slate-300">sudo chmod +x /usr/local/bin/hermione</code>
+                                <button class="text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-xl">content_copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium mb-3 dark:text-white">Pronto! Basta digitar hermione</h4>
+                            <div
+                                class="bg-slate-100 dark:bg-background-dark p-4 rounded-md flex items-center justify-between group">
+                                <code class="text-sm font-mono text-slate-700 dark:text-slate-300">hermione</code>
+                                <button class="text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-xl">content_copy</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-20 pt-20 border-t border-slate-200 dark:border-border-dark">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-primary mb-2">star</span>
+                    <span class="text-2xl font-bold dark:text-white">128</span>
+                    <span class="text-sm text-slate-500">Stars</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-primary mb-2">visibility</span>
+                    <span class="text-2xl font-bold dark:text-white">14</span>
+                    <span class="text-sm text-slate-500">Watching</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-primary mb-2">fork_right</span>
+                    <span class="text-2xl font-bold dark:text-white">32</span>
+                    <span class="text-sm text-slate-500">Forks</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-primary mb-2">history</span>
+                    <span class="text-2xl font-bold dark:text-white">v1.2.0</span>
+                    <span class="text-sm text-slate-500">Latest Release</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="py-12 border-t border-slate-200 dark:border-border-dark mt-auto">
+        <div class="container mx-auto px-6 text-center">
+            <h2
+                class="text-2xl font-bold tracking-widest text-slate-400 dark:text-slate-600 uppercase hover:text-primary transition-colors cursor-default">
+                meuWeb.site
+            </h2>
+        </div>
+    </footer>
+
+</body>
+
+</html>
